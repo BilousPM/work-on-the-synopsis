@@ -21,7 +21,7 @@ Product.propTypes = {
   name: PropTypes.string.isRequired,
   src: PropTypes.string,
   price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired,
+  // quantity: PropTypes.number.isRequired,
 };
 
 export default Product;
