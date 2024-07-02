@@ -1,15 +1,38 @@
 import "./App.css";
+import { useState } from "react";
 
 import Product from "../Product/Product.jsx";
 import favouriteBooks from "../../data.js";
 import Books from "../Books/Books.jsx";
 import Card from "../Card/Card.jsx";
 import Button from "../Button/Button.jsx";
+import Counter from "../Counter/counter.jsx";
 
 export default function App() {
+  //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
+
+  const [clicks, setClicks] = useState(5);
+  // const [clicks, setClicks] = useState({
+  //   x: 1,
+  //   y: 2,
+  // });
+
+  // const updateX = () => {
+  //   setClicks(3);
+  // };
+  // const updateY = () => {
+  //   setClicks({ ...clicks, y: clicks.y + 1 });
+  // };
+
+  const handleClick = () => {
+    setClicks(clicks + 2);
+  };
+
   return (
     <div>
       <h1>Best selling</h1>
+      <Counter value={clicks} onClick={handleClick} />
+      <Counter />
 
       <Button message="I am a Button. Click me!">Button: Click me!</Button>
       <Product name="Tacos With Lime" price={56.44} />
