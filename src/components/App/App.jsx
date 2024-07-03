@@ -6,7 +6,7 @@ import favouriteBooks from "../../data.js";
 import Books from "../Books/Books.jsx";
 import Card from "../Card/Card.jsx";
 import Button from "../Button/Button.jsx";
-import Counter from "../Counter/counter.jsx";
+import Counter from "../Counter/Counter.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
