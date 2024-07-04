@@ -7,11 +7,13 @@ import Books from "../Books/Books.jsx";
 import Card from "../Card/Card.jsx";
 import Button from "../Button/Button.jsx";
 import Counter from "../Counter/Counter.jsx";
+import BtnEffect from "../BtnEffect/BtnEffect.jsx";
+import ModalApp from "../Modal/ModalApp.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
 
-  const [clicks, setClicks] = useState(5);
+  const [clicks, setClicks] = useState(0);
   // const [clicks, setClicks] = useState({
   //   x: 1,
   //   y: 2,
@@ -25,14 +27,17 @@ export default function App() {
   // };
 
   const handleClick = () => {
-    setClicks(clicks + 2);
+    setClicks(clicks + 1);
   };
 
   return (
     <div>
+      <ModalApp />
+
+      <BtnEffect />
       <h1>Best selling</h1>
       <Counter value={clicks} onClick={handleClick} />
-      <Counter />
+      {/* <Counter /> */}
 
       <Button message="I am a Button. Click me!">Button: Click me!</Button>
       <Product name="Tacos With Lime" price={56.44} />
