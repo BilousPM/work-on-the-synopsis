@@ -9,6 +9,8 @@ import Button from "../Button/Button.jsx";
 import Counter from "../Counter/Counter.jsx";
 import BtnEffect from "../BtnEffect/BtnEffect.jsx";
 import ModalApp from "../Modal/ModalApp.jsx";
+import ControlledForm from "../ControlledForm/ControlledForm.jsx";
+import UncontrolledForm from "../UncontrolledForm/UncontrolledForm.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
@@ -30,24 +32,30 @@ export default function App() {
     setClicks(clicks + 1);
   };
 
+  const handleLogin = (userData) => {
+    // Виконуємо необхідні операції з даними
+    console.log(userData);
+  };
+
   return (
     <div>
-      <ModalApp />
+      <UncontrolledForm onLogin={handleLogin} />
+      {/* <ControlledForm /> */}
+      {/* <ModalApp />
 
       <BtnEffect />
       <h1>Best selling</h1>
-      <Counter value={clicks} onClick={handleClick} />
+      <Counter value={clicks} onClick={handleClick} /> */}
       {/* <Counter /> */}
-
-      <Button message="I am a Button. Click me!">Button: Click me!</Button>
+      {/* <Button message="I am a Button. Click me!">Button: Click me!</Button>
       <Product name="Tacos With Lime" price={56.44} />
       <Product name="Fries and Burger" price={74.33} quantity={7} />
-      <Product name="Hot dog" price={83.44} quantity={3} />
+      <Product name="Hot dog" price={83.44} quantity={3} /> */}
       {/* <Books books={favouriteBooks} /> */}
-      <Card>
+      {/* <Card>
         <h1>Card title</h1>
         <Books books={favouriteBooks} />
-      </Card>
+      </Card> */}
     </div>
   );
 }
