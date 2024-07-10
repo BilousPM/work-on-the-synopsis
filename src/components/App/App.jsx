@@ -11,6 +11,7 @@ import BtnEffect from "../BtnEffect/BtnEffect.jsx";
 import ModalApp from "../Modal/ModalApp.jsx";
 import ControlledForm from "../ControlledForm/ControlledForm.jsx";
 import UncontrolledForm from "../UncontrolledForm/UncontrolledForm.jsx";
+import UnContrForm from "../UncontrolledForm/UnContrForm.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
@@ -39,7 +40,8 @@ export default function App() {
 
   return (
     <div>
-      <UncontrolledForm onLogin={handleLogin} />
+      <UnContrForm />
+      {/* <UncontrolledForm onLogin={handleLogin} /> */}
       {/* <ControlledForm /> */}
       {/* <ModalApp />
 
