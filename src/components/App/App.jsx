@@ -38,11 +38,19 @@ export default function App() {
     console.log(userData);
   };
 
+  const register = (data) => {
+    console.log("Register in progres...");
+    setTimeout(() => {
+      console.log("Register done");
+      console.log(data);
+    }, 2000);
+  };
+
   return (
     <div>
-      <UnContrForm />
+      {/* <UnContrForm /> */}
       {/* <UncontrolledForm onLogin={handleLogin} /> */}
-      {/* <ControlledForm /> */}
+      <ControlledForm register={register} />
       {/* <ModalApp />
 
       <BtnEffect />
