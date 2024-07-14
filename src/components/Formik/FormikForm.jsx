@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from "formik";
+import s from "./FormikForm.module.css";
 
 const FormikForm = () => {
   const initialValues = {
@@ -16,35 +17,35 @@ const FormikForm = () => {
   };
 
   return (
-    <div>
+    <div className={s.formwrapper}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          <label>
+        <Form className={s.form}>
+          <label className={s.label}>
             <span>Name</span>
-            <Field name="name" />
+            <Field name="name" className={s.input} />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Surname:</span>
-            <Field name="surname" />
+            <Field name="surname" className={s.input} />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Age:</span>
-            <Field name="age" />
+            <Field name="age" className={s.input} />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Email:</span>
-            <Field name="email" type="email" />
+            <Field name="email" className={s.input} type="email" />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Role</span>
-            <Field as="select" name="role">
+            <Field as="select" name="role" className={s.input}>
               <option value="user">User</option>
               <option value="admin">Admin</option>
             </Field>
           </label>
-          <label>
+          <label className={s.label}>
             <span>About</span>
-            <Field name="about" as="textarea"></Field>
+            <Field name="about" as="textarea" className={s.input}></Field>
           </label>
           <button type="submit">Create</button>
         </Form>

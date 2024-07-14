@@ -1,0 +1,31 @@
+.formwrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  padding: 28px 40px;
+  box-shadow: 1px 1px 8px 8px teal;
+  & button {
+    background-color: lightsalmon;
+    color: aliceblue;
+    padding: 10px;
+    box-shadow: 1px 1px 8px 8px teal;
+  }
+}
+.label {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  & span {
+    font-weight: bold;
+  }
+}
+.input {
+  padding: 6px;
+  border-radius: 15px;
+}
