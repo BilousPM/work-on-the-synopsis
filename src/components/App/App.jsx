@@ -12,6 +12,7 @@ import ModalApp from "../Modal/ModalApp.jsx";
 import ControlledForm from "../ControlledForm/ControlledForm.jsx";
 import UncontrolledForm from "../UncontrolledForm/UncontrolledForm.jsx";
 import UnContrForm from "../UncontrolledForm/UnContrForm.jsx";
+import Formik from "../Formik/FormikForm.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
@@ -48,9 +49,10 @@ export default function App() {
 
   return (
     <div>
+      <Formik />
       {/* <UnContrForm /> */}
       {/* <UncontrolledForm onLogin={handleLogin} /> */}
-      <ControlledForm register={register} />
+      {/* <ControlledForm register={register} /> */}
       {/* <ModalApp />
 
       <BtnEffect />
