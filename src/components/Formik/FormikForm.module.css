@@ -17,6 +17,11 @@
     box-shadow: 1px 1px 8px 8px teal;
   }
 }
+
+.error {
+  color: red;
+  font-weight: 600;
+}
 .label {
   display: flex;
   gap: 5px;
