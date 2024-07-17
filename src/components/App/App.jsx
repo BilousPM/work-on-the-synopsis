@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Product from "../Product/Product.jsx";
 import favouriteBooks from "../../data.js";
@@ -13,11 +13,35 @@ import ControlledForm from "../ControlledForm/ControlledForm.jsx";
 import UncontrolledForm from "../UncontrolledForm/UncontrolledForm.jsx";
 import UnContrForm from "../UncontrolledForm/UnContrForm.jsx";
 import Formik from "../Formik/FormikForm.jsx";
+import { fetchArticlesWithTopic } from "../../api/articles-api.js";
+import ArticleList from "../ArticlesList/ArticleList.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
 
   const [clicks, setClicks] = useState(0);
+
+  // код http:
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function fetchArticles() {
+      try {
+        setLoading(true);
+        const data = await fetchArticlesWithTopic("react");
+
+        setArticles(data);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchArticles();
+  }, []);
+
   // const [clicks, setClicks] = useState({
   //   x: 1,
   //   y: 2,
@@ -49,7 +73,15 @@ export default function App() {
 
   return (
     <div>
-      <Formik />
+      <h1>Latest articles</h1>
+
+      {loading && <p>Loading data, please wait...</p>}
+      {error && (
+        <p>Whoops, something went wrong! Please try reloading this page!</p>
+      )}
+
+      {articles.length > 0 && <ArticleList articles={articles} />}
+      {/* <Formik />/ */}
       {/* <UnContrForm /> */}
       {/* <UncontrolledForm onLogin={handleLogin} /> */}
       {/* <ControlledForm register={register} /> */}
