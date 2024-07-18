@@ -15,6 +15,7 @@ import UnContrForm from "../UncontrolledForm/UnContrForm.jsx";
 import Formik from "../Formik/FormikForm.jsx";
 import { fetchArticlesWithTopic } from "../../api/articles-api.js";
 import ArticleList from "../ArticlesList/ArticleList.jsx";
+import { Form } from "../SearchForm/SearchForm.jsx";
 
 export default function App() {
   //  "підняття стану"до батька , щоб змінити стан батька під час події в дитині.
@@ -26,21 +27,35 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    async function fetchArticles() {
-      try {
-        setLoading(true);
-        const data = await fetchArticlesWithTopic("react");
+  // useEffect(() => {
+  //   async function fetchArticles() {
+  //     try {
+  //       setLoading(true);
+  //       const data = await fetchArticlesWithTopic("react");
 
-        setArticles(data);
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
+  //       setArticles(data);
+  //     } catch (error) {
+  //       setError(true);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchArticles();
+  // }, []);
+
+  const handleSearch = async (topic) => {
+    try {
+      setArticles([]);
+      setError(false);
+      setLoading(true);
+      const data = await fetchArticlesWithTopic(topic);
+      setArticles(data);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
     }
-    fetchArticles();
-  }, []);
+  };
 
   // const [clicks, setClicks] = useState({
   //   x: 1,
@@ -73,6 +88,7 @@ export default function App() {
 
   return (
     <div>
+      <Form onSearch={handleSearch} />
       <h1>Latest articles</h1>
 
       {loading && <p>Loading data, please wait...</p>}
